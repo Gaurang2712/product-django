@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="products-container">
+    <div class="products-header">
+        <h1>Our Products</h1>
+        <p class="subtitle">Premium pet products for your beloved companions</p>
+    </div>
+    
+    <div class="filter-container">
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All Products</button>
+            <button class="filter-btn" data-filter="cat">Cat Products</button>
+            <button class="filter-btn" data-filter="dog">Dog Products</button>
+        </div>
+    </div>
+    
+    <div class="products-grid">
+        {% for product in products %}
+        <div class="product-card" data-category="{{ product.category }}">
+            {% if product.is_new %}
+            <div class="new-badge">New</div>
+            {% endif %}
+            <div class="product-image-container">
+                <div class="product-image">
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                </div>
+            </div>
+            <div class="product-info">
+                <h3>{{ product.name }}</h3>
+                <div class="product-price">
+                    <span class="current-price">${{ product.price }}</span>
+                    {% if product.original_price %}
+                    <span class="original-price">${{ product.original_price }}</span>
+                    {% endif %}
+                </div>
+                <div class="product-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span class="rating-count">(4.5)</span>
+                </div>
+                <div class="product-actions">
+                    <a href="#" class="view-detail">View Details</a>
+                    <a href="#" class="add-to-cart">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

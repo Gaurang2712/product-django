@@ -23,12 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-09-fa-j7373((y!!1124jsrq4cj)_lm0acu@!r40fda3^!0!gt'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG", "False") == "True"
+DEBUG = True
 
 
 import os
 
-ALLOWED_HOSTS = ["your-railway-app-url", "localhost"]
+ALLOWED_HOSTS = []
 
 
 
@@ -78,10 +78,16 @@ WSGI_APPLICATION = 'petshop.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-import dj_database_url
-
+ 
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv("DATABASE_URL"))
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'pet_care',
+        'USER': 'root',
+        'PASSWORD': 'Pavilion@1650',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
 }
 
 

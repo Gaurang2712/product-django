@@ -1,6 +1,15 @@
 /* Enhanced products.css with larger product size */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Playwrite DE Grund", system-ui;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
 .products-container {
-  max-width:95%;
+  max-width: 95%;
   margin: 0 auto;
   padding: 40px 20px;
 }
